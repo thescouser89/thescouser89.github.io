@@ -1,0 +1,11 @@
+baseURL: dustin.lakaz.org
+disablePathToLower: true
+languageCode: en-us
+title: Bonzour
+pygmentsuseclasses: false
+PygmentsCodeFences: true
+pygmentsstyle: friendly
+publishDir: docs
+
+theme: mojombo-like
+...

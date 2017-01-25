@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<title>PackageKit Memory Cleanup</title>
+<link rel="stylesheet" href="/css/styles.css">
+<link rel="stylesheet" href="/css/pygment_trac.css">
+<script
+src="/js/jquery.min.js"></script>
+<script src="/js/respond.js"></script>
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1,
+user-scalable=no">
+</head>
+<body>
+<div class="wrapper">
+  <section>
+    <div id="title">
+      <h1>Bonzour!</h1>
+      <p><small></small></p>
+      <hr>
+      <span class="credits left">Page maintained by <a href="https://github.com/thescouser89">thescouser89</a></span>
+    </div>
+
+<h1 style="text-align: center; color: #69A583;">PackageKit Memory Cleanup</h1>
+<div id="post">
+  <p>I&rsquo;ve been using Fedora for a while now and have upgraded from Fedora 24 to
+Fedora 25 without any issues. I&rsquo;ve noticed that my root partition (I also have
+a separate one for <code>/home</code>) kept getting filled up and I wasn&rsquo;t really sure
+why. I have finally run <code>du -sh</code> like a madman trying to figure out which
+folder was eating all my precious HD space. It turns out it was PackageKit&rsquo;s
+fault&hellip;</p>
+
+<p>Apparently PackageKit heavily caches all the rpms it downloads and does not
+clean up after its mess. To help PackageKit clean up, run this command:</p>
+<div class="highlight" style="background: #f0f0f0"><pre style="line-height: 125%"><span></span><span style="color: #007020">cd</span> /var/cache/PackageKit/metadata/updates/packages
+sudo rm -rf *
+</pre></div>
+
+</div>
+  </section>
+</div>
+
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." :
+    "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost +
+      "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+  var pageTracker = _gat._getTracker("UA-58303303-1");
+  pageTracker._trackPageview();
+
+} catch(err) {}
+</script>
+</body>
+</html>
+
+
