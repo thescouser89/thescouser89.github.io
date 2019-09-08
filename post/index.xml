@@ -6,10 +6,20 @@
     <description>Recent content in Posts on Bonzour</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 23 Jan 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 08 Sep 2019 00:08:34 -0400</lastBuildDate>
     
 	<atom:link href="http://dustin.lakaz.org/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Quarkus is awesome</title>
+      <link>http://dustin.lakaz.org/2019/09/08/quarkus-is-awesome/</link>
+      <pubDate>Sun, 08 Sep 2019 00:08:34 -0400</pubDate>
+      
+      <guid>http://dustin.lakaz.org/2019/09/08/quarkus-is-awesome/</guid>
+      <description>I&amp;rsquo;ve been playing with Quarkus a lot at work lately. It&amp;rsquo;s really impressive how familiar it is with the Java EE annotations, yet has just about enough enhancements to make the developer experience so much better!
+An example would be the @QuarkusTest annotation for testing. It scaffolds everything for you to get a running Quarkus app to run your integration tests. I don&amp;rsquo;t even know how to get the same setup running on EAP or Wildfly.</description>
+    </item>
     
     <item>
       <title>PackageKit Memory Cleanup</title>

@@ -3,25 +3,30 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://dustin.lakaz.org/</loc>
+    <lastmod>2019-09-08T00:08:34-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://dustin.lakaz.org/post/</loc>
+    <lastmod>2019-09-08T00:08:34-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://dustin.lakaz.org/2019/09/08/quarkus-is-awesome/</loc>
+    <lastmod>2019-09-08T00:08:34-04:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://dustin.lakaz.org/about/</loc>
     <lastmod>2019-09-07T22:55:00-04:00</lastmod>
   </url>
   
   <url>
-    <loc>http://dustin.lakaz.org/</loc>
-    <lastmod>2019-09-07T22:55:00-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>http://dustin.lakaz.org/2017/01/23/packagekit-memory-cleanup/</loc>
     <lastmod>2017-01-23T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://dustin.lakaz.org/post/</loc>
-    <lastmod>2017-01-23T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
