@@ -1,78 +1,91 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-<head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="chrome=1">
-<title>Java EE Authentication with Curl</title>
-<link rel="stylesheet" href="/css/styles.css">
-<link rel="stylesheet" href="/css/pygment_trac.css">
-<script
-src="/js/jquery.min.js"></script>
-<script src="/js/respond.js"></script>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+
+        
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+
+        <link href="https://fonts.googleapis.com/css?family=Ubuntu|Ubuntu+Mono" rel="stylesheet"> 
+
+        <title>Java EE Authentication with Curl</title>
+
+        <link rel="stylesheet" href="/css/stylesheet.css">
+    </head>
+    <body>
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-md navbar-light">
+
+          
+          <span class="navbar-brand mb-0 h1"></span>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle Navigation" name="button">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <a class="nav-item nav-link " href="/">Home</a>
+              
+              
+              <a class="nav-item nav-link " href="/about/">About</a>
+            </div>
+          </div>
+        </nav>
+
+        <section id="page-title">
+          <h1><a href="/">Bonzour</a></h1>
+          <span id="author-name">
+            <h6><a href="/about/">thescouser89</a></h6>
+          </span>
+        </section>
 
 
-<meta name="viewport" content="width=device-width, initial-scale=1,
-user-scalable=no">
-</head>
-<body>
-<div class="wrapper">
-  <section>
-    <div id="title">
-      <h1>Bonzour!</h1>
-      <p><small></small></p>
-      <hr>
-      <span class="credits left">Page maintained by <a href="https://github.com/thescouser89">thescouser89</a></span>
-    </div>
-
-<h1 style="text-align: center; color: #69A583;">Java EE Authentication with Curl</h1>
-<div id="post">
-  <p>If you&rsquo;ve always wondered how to authenticate to a standard Java EE
+<div class="blog-post">
+  <h1>Java EE Authentication with Curl</h1>
+  <div class="blog-post-subheader">
+    <time>06 Jan 2015</time>
+  </div>
+  <div class="blog-post-content">
+    <p>If you&rsquo;ve always wondered how to authenticate to a standard Java EE
 authentication form using the <em>curl</em> command, this page is for you!</p>
 
 <ul>
 <li>First we&rsquo;ll obtain a session id from the server.</li>
 </ul>
-<div class="highlight" style="background: #f0f0f0"><pre style="line-height: 125%"><span></span>  curl -v -c cookies.txt http://localhost/login/index.jsp
-</pre></div>
-
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">  curl -v -c cookies.txt http://localhost/login/index.jsp</code></pre></div>
 <p>The session id will be stored as a cookie in the file <em>cookies.txt</em>.</p>
 
 <ul>
 <li>Next we&rsquo;ll use the session id to authenticate the user.</li>
 </ul>
-<div class="highlight" style="background: #f0f0f0"><pre style="line-height: 125%"><span></span>  curl -L -v -b cookies.txt <span style="color: #4070a0; font-weight: bold">\</span>
-       -d <span style="color: #4070a0">&#39;j_username=&lt;username&gt;&amp;j_password=&lt;password&gt;&#39;</span> <span style="color: #4070a0; font-weight: bold">\</span>
-       http://localhost/login/j_security_check
-</pre></div>
-
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">  curl -L -v -b cookies.txt <span style="color:#4070a0;font-weight:bold">\
+</span><span style="color:#4070a0;font-weight:bold"></span>       -d <span style="color:#4070a0">&#39;j_username=&lt;username&gt;&amp;j_password=&lt;password&gt;&#39;</span> <span style="color:#4070a0;font-weight:bold">\
+</span><span style="color:#4070a0;font-weight:bold"></span>       http://localhost/login/j_security_check</code></pre></div>
 <ul>
 <li>Finally once the session id is authenticated, we can use it to do secured
 operations.</li>
 </ul>
-<div class="highlight" style="background: #f0f0f0"><pre style="line-height: 125%"><span></span>  curl -v -b cookies.txt http://localhost/list
-</pre></div>
-
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">  curl -v -b cookies.txt http://localhost/list</code></pre></div>
 <p>Hope that was useful :)</p>
 
+  </div>
 </div>
-  </section>
-</div>
 
+      <footer>
+        <hr>
+        <small>
+          &copy; 2019 thescouser89.
+          Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a> using the <a href="https://github.com/arjunkrishnababu96/basics" target="_blank">Basics</a> theme.
+        </small>
+      </footer>
+    </div> 
 
-<script type="text/javascript">
-var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." :
-    "http://www.");
-document.write(unescape("%3Cscript src='" + gaJsHost +
-      "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-</script>
-<script type="text/javascript">
-try {
-  var pageTracker = _gat._getTracker("UA-58303303-1");
-  pageTracker._trackPageview();
-
-} catch(err) {}
-</script>
-</body>
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+  </body>
 </html>
-
 

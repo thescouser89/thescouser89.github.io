@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
     <head>
-	<meta name="generator" content="Hugo 0.55.6" />
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 
@@ -10,7 +9,7 @@
 
         <link href="https://fonts.googleapis.com/css?family=Ubuntu|Ubuntu+Mono" rel="stylesheet"> 
 
-        <title>Bonzour</title>
+        <title>PackageKit Memory Cleanup</title>
 
         <link rel="stylesheet" href="/css/stylesheet.css">
     </head>
@@ -27,7 +26,7 @@
 
           <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-              <a class="nav-item nav-link active" href="/">Home</a>
+              <a class="nav-item nav-link " href="/">Home</a>
               
               
               <a class="nav-item nav-link " href="/about/">About</a>
@@ -43,33 +42,25 @@
         </section>
 
 
-<section>
-  <ul class="posts_listing">
-    
-    <li>
-      <div class="row" id="posts">
-        <div class="d-none d-sm-block col-sm-3 date-time-title">
-          <time>23 Jan 2017</time>
-        </div>
-        <div class="col-sm date-time-title post">
-          <a href="/2017/01/23/packagekit-memory-cleanup/">PackageKit Memory Cleanup</a>
-        </div>
-      </div>
-    </li>
-    
-    <li>
-      <div class="row" id="posts">
-        <div class="d-none d-sm-block col-sm-3 date-time-title">
-          <time>06 Jan 2015</time>
-        </div>
-        <div class="col-sm date-time-title post">
-          <a href="/2015/01/06/java-ee-authentication-with-curl/">Java EE Authentication with Curl</a>
-        </div>
-      </div>
-    </li>
-    
-  </ul>
-</section>
+<div class="blog-post">
+  <h1>PackageKit Memory Cleanup</h1>
+  <div class="blog-post-subheader">
+    <time>23 Jan 2017</time>
+  </div>
+  <div class="blog-post-content">
+    <p>I&rsquo;ve been using Fedora for a while now and have upgraded from Fedora 24 to
+Fedora 25 without any issues. I&rsquo;ve noticed that my root partition (I also have
+a separate one for <code>/home</code>) kept getting filled up and I wasn&rsquo;t really sure
+why. I have finally run <code>du -sh</code> like a madman trying to figure out which
+folder was eating all my precious HD space. It turns out it was PackageKit&rsquo;s
+fault&hellip;</p>
+
+<p>Apparently PackageKit heavily caches all the rpms it downloads and does not
+clean up after its mess. To help PackageKit clean up, run this command:</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#007020">cd</span> /var/cache/PackageKit/metadata/updates/packages
+sudo rm -rf *</code></pre></div>
+  </div>
+</div>
 
       <footer>
         <hr>

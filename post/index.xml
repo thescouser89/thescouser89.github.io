@@ -2,32 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Bonzour</title>
-    <link>http://dustin.lakaz.org/post/index.xml</link>
+    <link>http://dustin.lakaz.org/post/</link>
     <description>Recent content in Posts on Bonzour</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 23 Jan 2017 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://dustin.lakaz.org/post/index.xml" rel="self" type="application/rss+xml" />
+    
+	<atom:link href="http://dustin.lakaz.org/post/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>PackageKit Memory Cleanup</title>
-      <link>http://dustin.lakaz.org/2017/01/23/packagekit-cleanup/</link>
+      <link>http://dustin.lakaz.org/2017/01/23/packagekit-memory-cleanup/</link>
       <pubDate>Mon, 23 Jan 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://dustin.lakaz.org/2017/01/23/packagekit-cleanup/</guid>
-      <description>&lt;p&gt;I&amp;rsquo;ve been using Fedora for a while now and have upgraded from Fedora 24 to
-Fedora 25 without any issues. I&amp;rsquo;ve noticed that my root partition (I also have
-a separate one for &lt;code&gt;/home&lt;/code&gt;) kept getting filled up and I wasn&amp;rsquo;t really sure
-why. I have finally run &lt;code&gt;du -sh&lt;/code&gt; like a madman trying to figure out which
-folder was eating all my precious HD space. It turns out it was PackageKit&amp;rsquo;s
-fault&amp;hellip;&lt;/p&gt;
-
-&lt;p&gt;Apparently PackageKit heavily caches all the rpms it downloads and does not
-clean up after its mess. To help PackageKit clean up, run this command:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f0f0&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #007020&#34;&gt;cd&lt;/span&gt; /var/cache/PackageKit/metadata/updates/packages
-sudo rm -rf *
-&lt;/pre&gt;&lt;/div&gt;
-</description>
+      <guid>http://dustin.lakaz.org/2017/01/23/packagekit-memory-cleanup/</guid>
+      <description>I&amp;rsquo;ve been using Fedora for a while now and have upgraded from Fedora 24 to Fedora 25 without any issues. I&amp;rsquo;ve noticed that my root partition (I also have a separate one for /home) kept getting filled up and I wasn&amp;rsquo;t really sure why. I have finally run du -sh like a madman trying to figure out which folder was eating all my precious HD space. It turns out it was PackageKit&amp;rsquo;s fault&amp;hellip;</description>
     </item>
     
     <item>
@@ -36,34 +26,9 @@ sudo rm -rf *
       <pubDate>Tue, 06 Jan 2015 00:00:00 +0000</pubDate>
       
       <guid>http://dustin.lakaz.org/2015/01/06/java-ee-authentication-with-curl/</guid>
-      <description>&lt;p&gt;If you&amp;rsquo;ve always wondered how to authenticate to a standard Java EE
-authentication form using the &lt;em&gt;curl&lt;/em&gt; command, this page is for you!&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;First we&amp;rsquo;ll obtain a session id from the server.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f0f0&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;  curl -v -c cookies.txt http://localhost/login/index.jsp
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;The session id will be stored as a cookie in the file &lt;em&gt;cookies.txt&lt;/em&gt;.&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Next we&amp;rsquo;ll use the session id to authenticate the user.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f0f0&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;  curl -L -v -b cookies.txt &lt;span style=&#34;color: #4070a0; font-weight: bold&#34;&gt;\&lt;/span&gt;
-       -d &lt;span style=&#34;color: #4070a0&#34;&gt;&amp;#39;j_username=&amp;lt;username&amp;gt;&amp;amp;j_password=&amp;lt;password&amp;gt;&amp;#39;&lt;/span&gt; &lt;span style=&#34;color: #4070a0; font-weight: bold&#34;&gt;\&lt;/span&gt;
-       http://localhost/login/j_security_check
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Finally once the session id is authenticated, we can use it to do secured
-operations.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f0f0&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;  curl -v -b cookies.txt http://localhost/list
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;Hope that was useful :)&lt;/p&gt;
-</description>
+      <description>If you&amp;rsquo;ve always wondered how to authenticate to a standard Java EE authentication form using the curl command, this page is for you!
+ First we&amp;rsquo;ll obtain a session id from the server.  curl -v -c cookies.txt http://localhost/login/index.jsp The session id will be stored as a cookie in the file cookies.txt.
+ Next we&amp;rsquo;ll use the session id to authenticate the user.  curl -L -v -b cookies.txt \  -d &amp;#39;j_username=&amp;lt;username&amp;gt;&amp;amp;j_password=&amp;lt;password&amp;gt;&amp;#39; \  http://localhost/login/j_security_check  Finally once the session id is authenticated, we can use it to do secured operations.</description>
     </item>
     
   </channel>
