@@ -4,13 +4,18 @@
   
   <url>
     <loc>http://dustin.lakaz.org/</loc>
-    <lastmod>2019-09-08T00:08:34-04:00</lastmod>
+    <lastmod>2019-10-28T10:54:20-04:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
+    <loc>http://dustin.lakaz.org/2019/10/28/extract_crt_from_keystore/</loc>
+    <lastmod>2019-10-28T10:54:20-04:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://dustin.lakaz.org/post/</loc>
-    <lastmod>2019-09-08T00:08:34-04:00</lastmod>
+    <lastmod>2019-10-28T10:54:20-04:00</lastmod>
     <priority>0</priority>
   </url>
   

@@ -9,7 +9,7 @@
 
         <link href="https://fonts.googleapis.com/css?family=Ubuntu|Ubuntu+Mono" rel="stylesheet"> 
 
-        <title>Quarkus is awesome</title>
+        <title>Extract_crt_from_keystore</title>
 
         <link rel="stylesheet" href="/css/stylesheet.css">
     </head>
@@ -43,25 +43,33 @@
 
 
 <div class="blog-post">
-  <h1>Quarkus is awesome</h1>
+  <h1>Extract_crt_from_keystore</h1>
   <div class="blog-post-subheader">
-    <time>08 Sep 2019</time>
+    <time>28 Oct 2019</time>
   </div>
   <div class="blog-post-content">
-    <p>I&rsquo;ve been playing with Quarkus a lot at work lately. It&rsquo;s really impressive how
-familiar it is with the Java EE annotations, yet has just about enough
-enhancements to make the developer experience so much better!</p>
+    <p>To extract a &lsquo;.crt&rsquo; file from a Java keystore, it seems that I have to do the following:</p>
 
-<p>An example would be the <code>@QuarkusTest</code> annotation for testing. It scaffolds
-everything for you to get a running Quarkus app to run your integration tests.
-I don&rsquo;t even know how to get the same setup running on EAP or Wildfly.</p>
+<ol>
+<li><p>List the certs in the keystore</p>
 
-<p>The other area that just makes me feel at home is Panache. It adds a lot of
-extra methods to my entities to make querying, creation, and updating much
-easier. It looks like Ruby-on-Rails&rsquo; ActiveRecord.</p>
+<pre><code>keytool -list -v -keystore &lt;keystore.jks&gt;
+</code></pre>
 
-<p>I&rsquo;m really excited to see what gets added next! It&rsquo;s been a real joy to use
-Quarkus for my new toy applications and I hope this continues! Onwards!</p>
+<p>Note the alias of the relevant crt you want to export</p></li>
+
+<li><p>Extract the crt from the keystore</p>
+
+<pre><code>keytool -export -alias &lt;alias&gt; -keystore &lt;keystore.jks&gt; -file temp.crt
+</code></pre></li>
+
+<li><p>Transform the binary (?) crt into a pem file</p>
+
+<pre><code>openssl x509 -inform DER -in temp.crt -out outcert.pem -text
+</code></pre></li>
+
+<li><p>Inside the <code>outcert.pem</code>, at the bottom, there is the private key of the crt file. It starts with the &lsquo;&mdash;BEGIN&rsquo; section. Save the content into another file. That file is your final crt file</p></li>
+</ol>
 
   </div>
 </div>
