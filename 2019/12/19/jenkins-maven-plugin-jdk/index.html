@@ -9,7 +9,7 @@
 
         <link href="https://fonts.googleapis.com/css?family=Ubuntu|Ubuntu+Mono" rel="stylesheet"> 
 
-        <title>Posts</title>
+        <title>Jenkins Maven Plugin JDK</title>
 
         <link rel="stylesheet" href="/css/stylesheet.css">
     </head>
@@ -42,66 +42,38 @@
         </section>
 
 
-<section>
-  <ul class="posts_listing">
-    
-    <li>
-      <div class="row" id="posts">
-        <div class="d-none d-sm-block col-sm-3 date-time-title">
-          <time>19 Dec 2019</time>
-        </div>
-        <div class="col-sm date-time-title post">
-          <a href="/2019/12/19/jenkins-maven-plugin-jdk/">Jenkins Maven Plugin JDK</a>
-        </div>
-      </div>
-    </li>
-    
-    <li>
-      <div class="row" id="posts">
-        <div class="d-none d-sm-block col-sm-3 date-time-title">
-          <time>28 Oct 2019</time>
-        </div>
-        <div class="col-sm date-time-title post">
-          <a href="/2019/10/28/extract-crt-from-keystore/">Extract crt from keystore</a>
-        </div>
-      </div>
-    </li>
-    
-    <li>
-      <div class="row" id="posts">
-        <div class="d-none d-sm-block col-sm-3 date-time-title">
-          <time>08 Sep 2019</time>
-        </div>
-        <div class="col-sm date-time-title post">
-          <a href="/2019/09/08/quarkus-is-awesome/">Quarkus is awesome</a>
-        </div>
-      </div>
-    </li>
-    
-    <li>
-      <div class="row" id="posts">
-        <div class="d-none d-sm-block col-sm-3 date-time-title">
-          <time>23 Jan 2017</time>
-        </div>
-        <div class="col-sm date-time-title post">
-          <a href="/2017/01/23/packagekit-memory-cleanup/">PackageKit Memory Cleanup</a>
-        </div>
-      </div>
-    </li>
-    
-    <li>
-      <div class="row" id="posts">
-        <div class="d-none d-sm-block col-sm-3 date-time-title">
-          <time>06 Jan 2015</time>
-        </div>
-        <div class="col-sm date-time-title post">
-          <a href="/2015/01/06/java-ee-authentication-with-curl/">Java EE Authentication with Curl</a>
-        </div>
-      </div>
-    </li>
-    
-  </ul>
-</section>
+<div class="blog-post">
+  <h1>Jenkins Maven Plugin JDK</h1>
+  <div class="blog-post-subheader">
+    <time>19 Dec 2019</time>
+  </div>
+  <div class="blog-post-content">
+    <p>When setting up a Maven Jenkins job, you have the possibility of selecting a
+JDK in the options. This is great unless you want to set the JDK
+programatically in a pre-build shell script for example. To achieve the latter
+I did the following:</p>
+
+<ol>
+<li>Add a new JDK with path &lsquo;${JAVA_HOME}&lsquo;. You can do so in the Jenkins tool
+options. Name it something like &lsquo;jdk_java_home_var&rsquo;</li>
+
+<li><p>In your Maven Jenkins job, create a file named &lsquo;${WORKSPACE}/env.properties&rsquo;
+and pipe into it:</p>
+
+<pre><code>echo &quot;JAVA_HOME=&lt;new JDK location&gt;&quot; &gt; ${WORKSPACE}/env.properties
+</code></pre></li>
+
+<li><p>Load the environment variables from the <code>env.properties</code> file in a pre-build step</p></li>
+
+<li><p>Select the JDK to be &lsquo;jdk_java_home_var&rsquo;</p></li>
+
+<li><p>Save</p></li>
+</ol>
+
+<p>That should be it!</p>
+
+  </div>
+</div>
 
       <footer>
         <hr>

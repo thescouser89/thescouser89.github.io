@@ -9,7 +9,7 @@
 
         <link href="https://fonts.googleapis.com/css?family=Ubuntu|Ubuntu+Mono" rel="stylesheet"> 
 
-        <title>Posts</title>
+        <title>Extract crt from keystore</title>
 
         <link rel="stylesheet" href="/css/stylesheet.css">
     </head>
@@ -42,66 +42,37 @@
         </section>
 
 
-<section>
-  <ul class="posts_listing">
-    
-    <li>
-      <div class="row" id="posts">
-        <div class="d-none d-sm-block col-sm-3 date-time-title">
-          <time>19 Dec 2019</time>
-        </div>
-        <div class="col-sm date-time-title post">
-          <a href="/2019/12/19/jenkins-maven-plugin-jdk/">Jenkins Maven Plugin JDK</a>
-        </div>
-      </div>
-    </li>
-    
-    <li>
-      <div class="row" id="posts">
-        <div class="d-none d-sm-block col-sm-3 date-time-title">
-          <time>28 Oct 2019</time>
-        </div>
-        <div class="col-sm date-time-title post">
-          <a href="/2019/10/28/extract-crt-from-keystore/">Extract crt from keystore</a>
-        </div>
-      </div>
-    </li>
-    
-    <li>
-      <div class="row" id="posts">
-        <div class="d-none d-sm-block col-sm-3 date-time-title">
-          <time>08 Sep 2019</time>
-        </div>
-        <div class="col-sm date-time-title post">
-          <a href="/2019/09/08/quarkus-is-awesome/">Quarkus is awesome</a>
-        </div>
-      </div>
-    </li>
-    
-    <li>
-      <div class="row" id="posts">
-        <div class="d-none d-sm-block col-sm-3 date-time-title">
-          <time>23 Jan 2017</time>
-        </div>
-        <div class="col-sm date-time-title post">
-          <a href="/2017/01/23/packagekit-memory-cleanup/">PackageKit Memory Cleanup</a>
-        </div>
-      </div>
-    </li>
-    
-    <li>
-      <div class="row" id="posts">
-        <div class="d-none d-sm-block col-sm-3 date-time-title">
-          <time>06 Jan 2015</time>
-        </div>
-        <div class="col-sm date-time-title post">
-          <a href="/2015/01/06/java-ee-authentication-with-curl/">Java EE Authentication with Curl</a>
-        </div>
-      </div>
-    </li>
-    
-  </ul>
-</section>
+<div class="blog-post">
+  <h1>Extract crt from keystore</h1>
+  <div class="blog-post-subheader">
+    <time>28 Oct 2019</time>
+  </div>
+  <div class="blog-post-content">
+    <p>To extract a &lsquo;.crt&rsquo; file from a Java keystore, it seems that I have to do the following:</p>
+
+<ol>
+<li><p>List the certs in the keystore</p>
+
+<pre><code>keytool -list -v -keystore &lt;keystore.jks&gt;
+</code></pre>
+
+<p>Note the alias of the relevant crt you want to export</p></li>
+
+<li><p>Extract the crt from the keystore</p>
+
+<pre><code>keytool -export -alias &lt;alias&gt; -keystore &lt;keystore.jks&gt; -file temp.crt
+</code></pre></li>
+
+<li><p>Transform the binary (?) crt into a pem file</p>
+
+<pre><code>openssl x509 -inform DER -in temp.crt -out outcert.pem -text
+</code></pre></li>
+
+<li><p>Inside the <code>outcert.pem</code>, at the bottom, there is the private key of the crt file. It starts with the &lsquo;&mdash;BEGIN&rsquo; section. Save the content into another file. That file is your final crt file</p></li>
+</ol>
+
+  </div>
+</div>
 
       <footer>
         <hr>
